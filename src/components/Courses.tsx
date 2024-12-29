@@ -1,20 +1,24 @@
 import { motion } from "framer-motion";
 import { Code, Palette, Brain } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const courses = [
   {
+    id: "design",
     title: "Design",
     description: "Master the art of digital design with industry-standard tools and principles",
     icon: Palette,
     color: "bg-blue-500",
   },
   {
+    id: "coding",
     title: "Coding",
     description: "Learn programming from basics to advanced with hands-on projects",
     icon: Code,
     color: "bg-green-500",
   },
   {
+    id: "ai",
     title: "AI Tools",
     description: "Explore the future of technology with cutting-edge AI applications",
     icon: Brain,
@@ -53,9 +57,12 @@ export const Courses = () => {
                 {course.title}
               </h3>
               <p className="text-gray-600 mb-6">{course.description}</p>
-              <button className="text-primary font-medium hover:underline">
+              <Link 
+                to={`/course/${course.id}`}
+                className="text-primary font-medium hover:underline inline-flex items-center"
+              >
                 Learn more →
-              </button>
+              </Link>
             </motion.div>
           ))}
         </div>
